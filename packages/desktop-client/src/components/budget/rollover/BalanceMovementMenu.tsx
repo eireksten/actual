@@ -32,9 +32,7 @@ export function BalanceMovementMenu({
   const catBalance = useSheetValue(rolloverBudget.catBalance(categoryId));
   const [menu, setMenu] = useState('menu');
 
-  const { onAddTransferBudgetNotes } = useBudgetTransferNotes({
-    month,
-  });
+  const { addBudgetTransferNotes } = useBudgetTransferNotes({ month });
 
   return (
     <>
@@ -64,7 +62,7 @@ export function BalanceMovementMenu({
               from: categoryId,
               to: toCategoryId,
             });
-            onAddTransferBudgetNotes({
+            addBudgetTransferNotes({
               fromCategoryId: categoryId,
               toCategoryId,
               amount,
@@ -103,7 +101,7 @@ const useBudgetTransferNotes = ({ month }: { month: string }) => {
 
   const addNewLine = (notes?: string) => `${notes}${notes && '\n'}`;
 
-  const onAddTransferBudgetNotes = useCallback(
+  const addBudgetTransferNotes = useCallback(
     async ({
       fromCategoryId,
       toCategoryId,
@@ -140,5 +138,5 @@ const useBudgetTransferNotes = ({ month }: { month: string }) => {
     [categoryNamesById, month],
   );
 
-  return { onAddTransferBudgetNotes };
+  return { addBudgetTransferNotes };
 };
