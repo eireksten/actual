@@ -11,7 +11,6 @@ import { Button } from '../../common/Button';
 import { Popover } from '../../common/Popover';
 import { Text } from '../../common/Text';
 import { View } from '../../common/View';
-import { NotesButton } from '../../NotesButton';
 import { CellValue } from '../../spreadsheet/CellValue';
 import { useFormat } from '../../spreadsheet/useFormat';
 import { Field, SheetCell } from '../../table';
@@ -202,7 +201,6 @@ export const CategoryMonth = memo(function CategoryMonth({
               borderColor: theme.tableBorder,
             }}
           >
-            <NotesButton id={`budget-${month}-${category.id}`} />
             <Button
               ref={triggerRef}
               type="bare"
